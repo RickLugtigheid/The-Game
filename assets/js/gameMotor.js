@@ -87,14 +87,15 @@ function backToTheDoor(){
             alert("You teleported back to the many doors");
             backToTheDoor();
         }else if(awnser == 4){
-            alert("Arrows were shot at you and some have hit you in the head.\n You died!");
-        }
+            alert("You teleported back to the many doors");
+            backToTheDoor();        }
     }
     //#endregion
 
     //#region DoorWithLight
     else if(awnser == 2){
-
+        alert("Behind the door is a really small room with a torch in it.\n There is nothing there so you decide to go back.")
+        backToTheDoor();
     }
     //#endregion
 
