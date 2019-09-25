@@ -1,6 +1,7 @@
 awnser = prompt("You find yourself in a dungeon what will you do? \n1> Take a torch and light it?\n2> Walk further without light \n\n Type 1 or 2 to continue...");
 
 var door1 = true;
+var door2 = true;
 
 if(awnser == 1){
     backToTheDoor();
@@ -62,7 +63,7 @@ function backToTheDoor(){
                                     alert("when you opened the door lava started to flow throu the door.\n you died!");
                                 }else if(awnser == 2){
                                     random = Math.floor(Math.random() * 2) + 1 ;
-                                    if(random =1){
+                                    if(random ==1){
                                     alert("You won the fight!");
                                     alert("The iron gate that was behind opens to the outside world! \n\n You are free!(you have won!)");
                                     }else{
@@ -93,9 +94,26 @@ function backToTheDoor(){
     //#endregion
 
     //#region DoorWithLight
-    else if(awnser == 2){
-        alert("Behind the door is a really small room with a torch in it.\n There is nothing there so you decide to go back.")
-        backToTheDoor();
+    else if(awnser == 2 && door2 == true){
+        alert("When you walked into the door you heard a voice: 'you have 2 turns to to geus a number btween 1 and 10.\n if you win you will be free!'")
+        awnser = prompt("Type the number you wan't to try:");
+        random = Math.floor(Math.random() * 10) + 1 ;
+        if(awnser <= random != random){
+            alert("the number is LOWER than the number you said!");
+        }else if(awnser >= random && awnser != random){
+            alert("the number is HIGHER that the number you said!");
+        }
+        awnser = prompt("Last try!\n\nType the number you wan't to try:");
+
+        alert("The number is:" + random);
+
+        if(awnser == random){
+            alert("You won!\n a hidden door opens to the oudside world!\n\n You are free(you won!)");
+        }else{
+            alert("you lost and have been teleported back!"); 
+            door2 = false;
+            backToTheDoor();
+        }
     }
     //#endregion
 
@@ -138,7 +156,7 @@ function backToTheDoor(){
         }
     }
     //#endregion
-    else if(door1 == false){
+    else if(door1 == false || door2 == false){
         alert("You can't open this door");
         backToTheDoor();
     }
